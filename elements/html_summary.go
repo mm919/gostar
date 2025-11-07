@@ -1174,36 +1174,36 @@ func (e *SUMMARYElement) PARTRemove(s ...string) *SUMMARYElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *SUMMARYElement) POPVER(c SummaryPopverChoice) *SUMMARYElement {
+func (e *SUMMARYElement) POPOVER(c SummaryPopoverChoice) *SUMMARYElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type SummaryPopverChoice string
+type SummaryPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	SummaryPopver_auto SummaryPopverChoice = "auto"
+	SummaryPopover_auto SummaryPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	SummaryPopver_empty SummaryPopverChoice = ""
+	SummaryPopover_empty SummaryPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	SummaryPopver_manual SummaryPopverChoice = "manual"
+	SummaryPopover_manual SummaryPopoverChoice = "manual"
 )
 
-// Remove the attribute POPVER from the element.
-func (e *SUMMARYElement) POPVERRemove(c SummaryPopverChoice) *SUMMARYElement {
+// Remove the attribute POPOVER from the element.
+func (e *SUMMARYElement) POPOVERRemove(c SummaryPopoverChoice) *SUMMARYElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

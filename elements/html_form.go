@@ -1459,36 +1459,36 @@ func (e *FORMElement) PARTRemove(s ...string) *FORMElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *FORMElement) POPVER(c FormPopverChoice) *FORMElement {
+func (e *FORMElement) POPOVER(c FormPopoverChoice) *FORMElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type FormPopverChoice string
+type FormPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	FormPopver_auto FormPopverChoice = "auto"
+	FormPopover_auto FormPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	FormPopver_empty FormPopverChoice = ""
+	FormPopover_empty FormPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	FormPopver_manual FormPopverChoice = "manual"
+	FormPopover_manual FormPopoverChoice = "manual"
 )
 
-// Remove the attribute POPVER from the element.
-func (e *FORMElement) POPVERRemove(c FormPopverChoice) *FORMElement {
+// Remove the attribute POPOVER from the element.
+func (e *FORMElement) POPOVERRemove(c FormPopoverChoice) *FORMElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

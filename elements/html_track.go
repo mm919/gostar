@@ -1366,36 +1366,36 @@ func (e *TRACKElement) PARTRemove(s ...string) *TRACKElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *TRACKElement) POPVER(c TrackPopverChoice) *TRACKElement {
+func (e *TRACKElement) POPOVER(c TrackPopoverChoice) *TRACKElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type TrackPopverChoice string
+type TrackPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	TrackPopver_auto TrackPopverChoice = "auto"
+	TrackPopover_auto TrackPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	TrackPopver_empty TrackPopverChoice = ""
+	TrackPopover_empty TrackPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	TrackPopver_manual TrackPopverChoice = "manual"
+	TrackPopover_manual TrackPopoverChoice = "manual"
 )
 
-// Remove the attribute POPVER from the element.
-func (e *TRACKElement) POPVERRemove(c TrackPopverChoice) *TRACKElement {
+// Remove the attribute POPOVER from the element.
+func (e *TRACKElement) POPOVERRemove(c TrackPopoverChoice) *TRACKElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

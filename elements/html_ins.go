@@ -1252,36 +1252,36 @@ func (e *INSElement) PARTRemove(s ...string) *INSElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *INSElement) POPVER(c InsPopverChoice) *INSElement {
+func (e *INSElement) POPOVER(c InsPopoverChoice) *INSElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type InsPopverChoice string
+type InsPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	InsPopver_auto InsPopverChoice = "auto"
+	InsPopover_auto InsPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	InsPopver_empty InsPopverChoice = ""
+	InsPopover_empty InsPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	InsPopver_manual InsPopverChoice = "manual"
+	InsPopover_manual InsPopoverChoice = "manual"
 )
 
-// Remove the attribute POPVER from the element.
-func (e *INSElement) POPVERRemove(c InsPopverChoice) *INSElement {
+// Remove the attribute POPOVER from the element.
+func (e *INSElement) POPOVERRemove(c InsPopoverChoice) *INSElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

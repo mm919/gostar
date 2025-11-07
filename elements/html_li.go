@@ -1196,36 +1196,36 @@ func (e *LIElement) PARTRemove(s ...string) *LIElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *LIElement) POPVER(c LiPopverChoice) *LIElement {
+func (e *LIElement) POPOVER(c LiPopoverChoice) *LIElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type LiPopverChoice string
+type LiPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	LiPopver_auto LiPopverChoice = "auto"
+	LiPopover_auto LiPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	LiPopver_empty LiPopverChoice = ""
+	LiPopover_empty LiPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	LiPopver_manual LiPopverChoice = "manual"
+	LiPopover_manual LiPopoverChoice = "manual"
 )
 
-// Remove the attribute POPVER from the element.
-func (e *LIElement) POPVERRemove(c LiPopverChoice) *LIElement {
+// Remove the attribute POPOVER from the element.
+func (e *LIElement) POPOVERRemove(c LiPopoverChoice) *LIElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

@@ -1519,36 +1519,36 @@ func (e *SCRIPTElement) PARTRemove(s ...string) *SCRIPTElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *SCRIPTElement) POPVER(c ScriptPopverChoice) *SCRIPTElement {
+func (e *SCRIPTElement) POPOVER(c ScriptPopoverChoice) *SCRIPTElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type ScriptPopverChoice string
+type ScriptPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	ScriptPopver_auto ScriptPopverChoice = "auto"
+	ScriptPopover_auto ScriptPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	ScriptPopver_empty ScriptPopverChoice = ""
+	ScriptPopover_empty ScriptPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	ScriptPopver_manual ScriptPopverChoice = "manual"
+	ScriptPopover_manual ScriptPopoverChoice = "manual"
 )
 
-// Remove the attribute POPVER from the element.
-func (e *SCRIPTElement) POPVERRemove(c ScriptPopverChoice) *SCRIPTElement {
+// Remove the attribute POPOVER from the element.
+func (e *SCRIPTElement) POPOVERRemove(c ScriptPopoverChoice) *SCRIPTElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

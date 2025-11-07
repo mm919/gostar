@@ -1196,36 +1196,36 @@ func (e *COLGROUPElement) PARTRemove(s ...string) *COLGROUPElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *COLGROUPElement) POPVER(c ColgroupPopverChoice) *COLGROUPElement {
+func (e *COLGROUPElement) POPOVER(c ColgroupPopoverChoice) *COLGROUPElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type ColgroupPopverChoice string
+type ColgroupPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	ColgroupPopver_auto ColgroupPopverChoice = "auto"
+	ColgroupPopover_auto ColgroupPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	ColgroupPopver_empty ColgroupPopverChoice = ""
+	ColgroupPopover_empty ColgroupPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	ColgroupPopver_manual ColgroupPopverChoice = "manual"
+	ColgroupPopover_manual ColgroupPopoverChoice = "manual"
 )
 
-// Remove the attribute POPVER from the element.
-func (e *COLGROUPElement) POPVERRemove(c ColgroupPopverChoice) *COLGROUPElement {
+// Remove the attribute POPOVER from the element.
+func (e *COLGROUPElement) POPOVERRemove(c ColgroupPopoverChoice) *COLGROUPElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

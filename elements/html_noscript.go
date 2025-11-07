@@ -1173,36 +1173,36 @@ func (e *NOSCRIPTElement) PARTRemove(s ...string) *NOSCRIPTElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *NOSCRIPTElement) POPVER(c NoscriptPopverChoice) *NOSCRIPTElement {
+func (e *NOSCRIPTElement) POPOVER(c NoscriptPopoverChoice) *NOSCRIPTElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type NoscriptPopverChoice string
+type NoscriptPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	NoscriptPopver_auto NoscriptPopverChoice = "auto"
+	NoscriptPopover_auto NoscriptPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	NoscriptPopver_empty NoscriptPopverChoice = ""
+	NoscriptPopover_empty NoscriptPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	NoscriptPopver_manual NoscriptPopverChoice = "manual"
+	NoscriptPopover_manual NoscriptPopoverChoice = "manual"
 )
 
-// Remove the attribute POPVER from the element.
-func (e *NOSCRIPTElement) POPVERRemove(c NoscriptPopverChoice) *NOSCRIPTElement {
+// Remove the attribute POPOVER from the element.
+func (e *NOSCRIPTElement) POPOVERRemove(c NoscriptPopoverChoice) *NOSCRIPTElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

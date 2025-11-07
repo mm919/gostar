@@ -1198,36 +1198,36 @@ func (e *TABLEElement) PARTRemove(s ...string) *TABLEElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *TABLEElement) POPVER(c TablePopverChoice) *TABLEElement {
+func (e *TABLEElement) POPOVER(c TablePopoverChoice) *TABLEElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type TablePopverChoice string
+type TablePopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	TablePopver_auto TablePopverChoice = "auto"
+	TablePopover_auto TablePopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	TablePopver_empty TablePopverChoice = ""
+	TablePopover_empty TablePopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	TablePopver_manual TablePopverChoice = "manual"
+	TablePopover_manual TablePopoverChoice = "manual"
 )
 
-// Remove the attribute POPVER from the element.
-func (e *TABLEElement) POPVERRemove(c TablePopverChoice) *TABLEElement {
+// Remove the attribute POPOVER from the element.
+func (e *TABLEElement) POPOVERRemove(c TablePopoverChoice) *TABLEElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

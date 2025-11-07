@@ -1174,36 +1174,36 @@ func (e *CODEElement) PARTRemove(s ...string) *CODEElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *CODEElement) POPVER(c CodePopverChoice) *CODEElement {
+func (e *CODEElement) POPOVER(c CodePopoverChoice) *CODEElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type CodePopverChoice string
+type CodePopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	CodePopver_auto CodePopverChoice = "auto"
+	CodePopover_auto CodePopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	CodePopver_empty CodePopverChoice = ""
+	CodePopover_empty CodePopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	CodePopver_manual CodePopverChoice = "manual"
+	CodePopover_manual CodePopoverChoice = "manual"
 )
 
-// Remove the attribute POPVER from the element.
-func (e *CODEElement) POPVERRemove(c CodePopverChoice) *CODEElement {
+// Remove the attribute POPOVER from the element.
+func (e *CODEElement) POPOVERRemove(c CodePopoverChoice) *CODEElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

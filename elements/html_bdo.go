@@ -1173,36 +1173,36 @@ func (e *BDOElement) PARTRemove(s ...string) *BDOElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *BDOElement) POPVER(c BdoPopverChoice) *BDOElement {
+func (e *BDOElement) POPOVER(c BdoPopoverChoice) *BDOElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type BdoPopverChoice string
+type BdoPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	BdoPopver_auto BdoPopverChoice = "auto"
+	BdoPopover_auto BdoPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	BdoPopver_empty BdoPopverChoice = ""
+	BdoPopover_empty BdoPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	BdoPopver_manual BdoPopverChoice = "manual"
+	BdoPopover_manual BdoPopoverChoice = "manual"
 )
 
-// Remove the attribute POPVER from the element.
-func (e *BDOElement) POPVERRemove(c BdoPopverChoice) *BDOElement {
+// Remove the attribute POPOVER from the element.
+func (e *BDOElement) POPOVERRemove(c BdoPopoverChoice) *BDOElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 
