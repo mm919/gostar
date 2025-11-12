@@ -1552,36 +1552,36 @@ func (e *VIDEOElement) PARTRemove(s ...string) *VIDEOElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *VIDEOElement) POPVER(c VideoPopverChoice) *VIDEOElement {
+func (e *VIDEOElement) POPOVER(c VideoPopoverChoice) *VIDEOElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type VideoPopverChoice string
+type VideoPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	VideoPopver_auto VideoPopverChoice = "auto"
+	VideoPopover_auto VideoPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	VideoPopver_empty VideoPopverChoice = ""
+	VideoPopover_empty VideoPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	VideoPopver_manual VideoPopverChoice = "manual"
+	VideoPopover_manual VideoPopoverChoice = "manual"
 )
 
-// Remove the attribute POPVER from the element.
-func (e *VIDEOElement) POPVERRemove(c VideoPopverChoice) *VIDEOElement {
+// Remove the attribute POPOVER from the element.
+func (e *VIDEOElement) POPOVERRemove(c VideoPopoverChoice) *VIDEOElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

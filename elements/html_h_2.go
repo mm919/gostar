@@ -1172,36 +1172,36 @@ func (e *H2Element) PARTRemove(s ...string) *H2Element {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *H2Element) POPVER(c H2PopverChoice) *H2Element {
+func (e *H2Element) POPOVER(c H2PopoverChoice) *H2Element {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type H2PopverChoice string
+type H2PopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	H2Popver_auto H2PopverChoice = "auto"
+	H2Popover_auto H2PopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	H2Popver_empty H2PopverChoice = ""
+	H2Popover_empty H2PopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	H2Popver_manual H2PopverChoice = "manual"
+	H2Popover_manual H2PopoverChoice = "manual"
 )
 
-// Remove the attribute POPVER from the element.
-func (e *H2Element) POPVERRemove(c H2PopverChoice) *H2Element {
+// Remove the attribute POPOVER from the element.
+func (e *H2Element) POPOVERRemove(c H2PopoverChoice) *H2Element {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

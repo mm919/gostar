@@ -1217,36 +1217,36 @@ func (e *BLOCKQUOTEElement) PARTRemove(s ...string) *BLOCKQUOTEElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *BLOCKQUOTEElement) POPVER(c BlockquotePopverChoice) *BLOCKQUOTEElement {
+func (e *BLOCKQUOTEElement) POPOVER(c BlockquotePopoverChoice) *BLOCKQUOTEElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type BlockquotePopverChoice string
+type BlockquotePopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	BlockquotePopver_auto BlockquotePopverChoice = "auto"
+	BlockquotePopover_auto BlockquotePopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	BlockquotePopver_empty BlockquotePopverChoice = ""
+	BlockquotePopover_empty BlockquotePopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	BlockquotePopver_manual BlockquotePopverChoice = "manual"
+	BlockquotePopover_manual BlockquotePopoverChoice = "manual"
 )
 
-// Remove the attribute POPVER from the element.
-func (e *BLOCKQUOTEElement) POPVERRemove(c BlockquotePopverChoice) *BLOCKQUOTEElement {
+// Remove the attribute POPOVER from the element.
+func (e *BLOCKQUOTEElement) POPOVERRemove(c BlockquotePopoverChoice) *BLOCKQUOTEElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

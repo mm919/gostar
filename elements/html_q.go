@@ -1214,36 +1214,36 @@ func (e *QElement) PARTRemove(s ...string) *QElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *QElement) POPVER(c QPopverChoice) *QElement {
+func (e *QElement) POPOVER(c QPopoverChoice) *QElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type QPopverChoice string
+type QPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	QPopver_auto QPopverChoice = "auto"
+	QPopover_auto QPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	QPopver_empty QPopverChoice = ""
+	QPopover_empty QPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	QPopver_manual QPopverChoice = "manual"
+	QPopover_manual QPopoverChoice = "manual"
 )
 
-// Remove the attribute POPVER from the element.
-func (e *QElement) POPVERRemove(c QPopverChoice) *QElement {
+// Remove the attribute POPOVER from the element.
+func (e *QElement) POPOVERRemove(c QPopoverChoice) *QElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

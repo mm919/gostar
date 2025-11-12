@@ -1174,36 +1174,36 @@ func (e *RTCElement) PARTRemove(s ...string) *RTCElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *RTCElement) POPVER(c RtcPopverChoice) *RTCElement {
+func (e *RTCElement) POPOVER(c RtcPopoverChoice) *RTCElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type RtcPopverChoice string
+type RtcPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	RtcPopver_auto RtcPopverChoice = "auto"
+	RtcPopover_auto RtcPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	RtcPopver_empty RtcPopverChoice = ""
+	RtcPopover_empty RtcPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	RtcPopver_manual RtcPopverChoice = "manual"
+	RtcPopover_manual RtcPopoverChoice = "manual"
 )
 
-// Remove the attribute POPVER from the element.
-func (e *RTCElement) POPVERRemove(c RtcPopverChoice) *RTCElement {
+// Remove the attribute POPOVER from the element.
+func (e *RTCElement) POPOVERRemove(c RtcPopoverChoice) *RTCElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

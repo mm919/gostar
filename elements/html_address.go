@@ -1172,36 +1172,36 @@ func (e *ADDRESSElement) PARTRemove(s ...string) *ADDRESSElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *ADDRESSElement) POPVER(c AddressPopverChoice) *ADDRESSElement {
+func (e *ADDRESSElement) POPOVER(c AddressPopoverChoice) *ADDRESSElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type AddressPopverChoice string
+type AddressPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	AddressPopver_auto AddressPopverChoice = "auto"
+	AddressPopover_auto AddressPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	AddressPopver_empty AddressPopverChoice = ""
+	AddressPopover_empty AddressPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	AddressPopver_manual AddressPopverChoice = "manual"
+	AddressPopover_manual AddressPopoverChoice = "manual"
 )
 
-// Remove the attribute POPVER from the element.
-func (e *ADDRESSElement) POPVERRemove(c AddressPopverChoice) *ADDRESSElement {
+// Remove the attribute POPOVER from the element.
+func (e *ADDRESSElement) POPOVERRemove(c AddressPopoverChoice) *ADDRESSElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

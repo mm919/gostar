@@ -1174,36 +1174,36 @@ func (e *SECTIONElement) PARTRemove(s ...string) *SECTIONElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *SECTIONElement) POPVER(c SectionPopverChoice) *SECTIONElement {
+func (e *SECTIONElement) POPOVER(c SectionPopoverChoice) *SECTIONElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type SectionPopverChoice string
+type SectionPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	SectionPopver_auto SectionPopverChoice = "auto"
+	SectionPopover_auto SectionPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	SectionPopver_empty SectionPopverChoice = ""
+	SectionPopover_empty SectionPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	SectionPopver_manual SectionPopverChoice = "manual"
+	SectionPopover_manual SectionPopoverChoice = "manual"
 )
 
-// Remove the attribute POPVER from the element.
-func (e *SECTIONElement) POPVERRemove(c SectionPopverChoice) *SECTIONElement {
+// Remove the attribute POPOVER from the element.
+func (e *SECTIONElement) POPOVERRemove(c SectionPopoverChoice) *SECTIONElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

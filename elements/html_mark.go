@@ -1173,36 +1173,36 @@ func (e *MARKElement) PARTRemove(s ...string) *MARKElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *MARKElement) POPVER(c MarkPopverChoice) *MARKElement {
+func (e *MARKElement) POPOVER(c MarkPopoverChoice) *MARKElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type MarkPopverChoice string
+type MarkPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	MarkPopver_auto MarkPopverChoice = "auto"
+	MarkPopover_auto MarkPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	MarkPopver_empty MarkPopverChoice = ""
+	MarkPopover_empty MarkPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	MarkPopver_manual MarkPopverChoice = "manual"
+	MarkPopover_manual MarkPopoverChoice = "manual"
 )
 
-// Remove the attribute POPVER from the element.
-func (e *MARKElement) POPVERRemove(c MarkPopverChoice) *MARKElement {
+// Remove the attribute POPOVER from the element.
+func (e *MARKElement) POPOVERRemove(c MarkPopoverChoice) *MARKElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

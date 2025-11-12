@@ -1172,36 +1172,36 @@ func (e *TFOOTElement) PARTRemove(s ...string) *TFOOTElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *TFOOTElement) POPVER(c TfootPopverChoice) *TFOOTElement {
+func (e *TFOOTElement) POPOVER(c TfootPopoverChoice) *TFOOTElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type TfootPopverChoice string
+type TfootPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	TfootPopver_auto TfootPopverChoice = "auto"
+	TfootPopover_auto TfootPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	TfootPopver_empty TfootPopverChoice = ""
+	TfootPopover_empty TfootPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	TfootPopver_manual TfootPopverChoice = "manual"
+	TfootPopover_manual TfootPopoverChoice = "manual"
 )
 
-// Remove the attribute POPVER from the element.
-func (e *TFOOTElement) POPVERRemove(c TfootPopverChoice) *TFOOTElement {
+// Remove the attribute POPOVER from the element.
+func (e *TFOOTElement) POPOVERRemove(c TfootPopoverChoice) *TFOOTElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

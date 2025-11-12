@@ -1172,36 +1172,36 @@ func (e *BODYElement) PARTRemove(s ...string) *BODYElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *BODYElement) POPVER(c BodyPopverChoice) *BODYElement {
+func (e *BODYElement) POPOVER(c BodyPopoverChoice) *BODYElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type BodyPopverChoice string
+type BodyPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	BodyPopver_auto BodyPopverChoice = "auto"
+	BodyPopover_auto BodyPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	BodyPopver_empty BodyPopverChoice = ""
+	BodyPopover_empty BodyPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	BodyPopver_manual BodyPopverChoice = "manual"
+	BodyPopover_manual BodyPopoverChoice = "manual"
 )
 
-// Remove the attribute POPVER from the element.
-func (e *BODYElement) POPVERRemove(c BodyPopverChoice) *BODYElement {
+// Remove the attribute POPOVER from the element.
+func (e *BODYElement) POPOVERRemove(c BodyPopoverChoice) *BODYElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

@@ -1250,36 +1250,36 @@ func (e *OPTGROUPElement) PARTRemove(s ...string) *OPTGROUPElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *OPTGROUPElement) POPVER(c OptgroupPopverChoice) *OPTGROUPElement {
+func (e *OPTGROUPElement) POPOVER(c OptgroupPopoverChoice) *OPTGROUPElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type OptgroupPopverChoice string
+type OptgroupPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	OptgroupPopver_auto OptgroupPopverChoice = "auto"
+	OptgroupPopover_auto OptgroupPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	OptgroupPopver_empty OptgroupPopverChoice = ""
+	OptgroupPopover_empty OptgroupPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	OptgroupPopver_manual OptgroupPopverChoice = "manual"
+	OptgroupPopover_manual OptgroupPopoverChoice = "manual"
 )
 
-// Remove the attribute POPVER from the element.
-func (e *OPTGROUPElement) POPVERRemove(c OptgroupPopverChoice) *OPTGROUPElement {
+// Remove the attribute POPOVER from the element.
+func (e *OPTGROUPElement) POPOVERRemove(c OptgroupPopoverChoice) *OPTGROUPElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

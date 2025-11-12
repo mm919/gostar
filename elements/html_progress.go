@@ -1204,36 +1204,36 @@ func (e *PROGRESSElement) PARTRemove(s ...string) *PROGRESSElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *PROGRESSElement) POPVER(c ProgressPopverChoice) *PROGRESSElement {
+func (e *PROGRESSElement) POPOVER(c ProgressPopoverChoice) *PROGRESSElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type ProgressPopverChoice string
+type ProgressPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	ProgressPopver_auto ProgressPopverChoice = "auto"
+	ProgressPopover_auto ProgressPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	ProgressPopver_empty ProgressPopverChoice = ""
+	ProgressPopover_empty ProgressPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	ProgressPopver_manual ProgressPopverChoice = "manual"
+	ProgressPopover_manual ProgressPopoverChoice = "manual"
 )
 
-// Remove the attribute POPVER from the element.
-func (e *PROGRESSElement) POPVERRemove(c ProgressPopverChoice) *PROGRESSElement {
+// Remove the attribute POPOVER from the element.
+func (e *PROGRESSElement) POPOVERRemove(c ProgressPopoverChoice) *PROGRESSElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 
